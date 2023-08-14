@@ -15,12 +15,6 @@ const Modal = ({ image, imageDescription, onModalClose }) => {
     };
   }, [onModalClose]);
 
-  // const handleKeyDown = event => {
-  //   if (event.code === 'Escape') {
-  //     onModalClose();
-  //   }
-  // };
-
   const handleOverlayClick = event => {
     if (event.currentTarget === event.target) {
       onModalClose();
