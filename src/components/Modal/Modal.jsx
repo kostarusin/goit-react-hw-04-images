@@ -4,17 +4,22 @@ import style from './Modal.module.css';
 
 const Modal = ({ image, imageDescription, onModalClose }) => {
   useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.key === 'Escape') {
+        onModalClose();
+      }
+    };
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  });
+  }, [onModalClose]);
 
-  const handleKeyDown = event => {
-    if (event.code === 'Escape') {
-      onModalClose();
-    }
-  };
+  // const handleKeyDown = event => {
+  //   if (event.code === 'Escape') {
+  //     onModalClose();
+  //   }
+  // };
 
   const handleOverlayClick = event => {
     if (event.currentTarget === event.target) {
